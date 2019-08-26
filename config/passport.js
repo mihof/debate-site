@@ -18,6 +18,10 @@ passport.use(new GoogleStrategy({
           email: profile.emails[0].value,
           googleId: profile.id
         });
+        newDebater.save(function(err) {
+          if (err) return cb(err);
+          returncb(null, newDebater);
+        });
       }
     });  
   }
