@@ -2,6 +2,9 @@ var router = require('express').Router();
 var debatersCtrl = require('../controllers/debaters')
 
 router.get('/debaters', debatersCtrl.index);
+router.get('/debaters/browse', debatersCtrl.browse);
+router.get('/debaters/addDebate', debatersCtrl.addDebate);
+
 
 
 /* GET users listing. */
