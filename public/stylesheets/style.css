@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+nav {
+  background-color: rgb(56, 129, 126);
+}
+
+form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+  grid-template-columns: repeat(1, minmax(auto, 22rem));
+  font-size: 20px;
+  padding: 5px;
+}

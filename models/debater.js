@@ -9,18 +9,30 @@ var commentSchema = new mongoose.Schema({
   }
 });
 
-var postSchema = new mongoose.Schema({
-  text: {
+var addDebateSchema = new mongoose.Schema({
+  topic: {
   type: String,
-  min: 10,
+  min: 4,
   max: 50
+  },
+  stances1: {
+  type: String
+  },
+  stances2: {
+  type: String
+  },
+  stances1: {
+  type: String
+  },
+  description: {
+  type: String
   }
 });
 
 var debaterSchema = new Schema ({
   name: String,
   email: String,
-  post: [postSchema],
+  addDebate: [addDebateSchema],
   comment: [commentSchema],
   googleId: String
 });
