@@ -4,7 +4,8 @@ module.exports = {
   index,
   browse,
   addDebate,
-  create
+  create,
+  delDebate
 };
 
 function index(req, res, next) {
@@ -36,9 +37,18 @@ function addDebate(req,res) {
 }
 
 function create(req, res) {
-  var newDebate = new Debaters(req.body);
-  newDebate.save(function(err) {
+  req.user.addDebate.push(req.body)
+  req.user.save(function(err) {
     if (err) return res.redirect('/debaters/browse');
     res.redirect(`/debaters/browse`);
+  });
+}
+
+function delDebate(req, res, next) {
+    Debaters.findOne({'addDebate._id': req.params.id}, function(err, debater) {
+    debater.addDebate.id(req.params.id).remove();
+    debater.save(function(err) {
+      res.redirect('/debaters/browse');
+    });
   });
 }

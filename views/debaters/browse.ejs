@@ -2,10 +2,9 @@
 <h1>Debate Site</h1>
 <div class="card w-50">
     <div class="card-body">
-      <% debaters.forEach(function(d) { %>
+      <% debaters.addDebate.forEach(function(d) { %>
       <h5 class="card-title"><% d.topic %></h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Button</a>
+      <p class="card-text"><% d.description %></p>
       <% }); %>
     </div>
   </div>

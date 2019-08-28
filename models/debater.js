@@ -10,23 +10,11 @@ var commentSchema = new mongoose.Schema({
 });
 
 var addDebateSchema = new mongoose.Schema({
-  topic: {
-  type: String,
-  min: 4,
-  max: 50
-  },
-  stances1: {
-  type: String
-  },
-  stances2: {
-  type: String
-  },
-  stances1: {
-  type: String
-  },
-  description: {
-  type: String
-  }
+  topic: String,
+  stances1: String,
+  stances2: String,
+  stances1: String,
+  description: String,
 });
 
 var debaterSchema = new Schema ({
