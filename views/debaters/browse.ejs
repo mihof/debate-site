@@ -4,9 +4,14 @@
   <div class="card w-50">
     <div class="card-body">
       <% debater.addDebate.forEach(function(d) { %>
-      <h5 class="card-title"><%= d.topic %></h5>
-      <p class="card-text"><%= d.description %></p>
+        <h5 class="card-title"><%= d.topic %></h5>
+        <p class="card-text"><%= d.description %></p>
       <% }); %>
+      <% if (debater._id.equals(user && user._id)) { %>
+        <form action="/addDebate/<%= debater._id %>?_method=DELETE" method="POST" class="secondary-content">
+        <button type="submit" class="btn">Delete</button>
+        </form>
+      <% } %>
     </div>
   </div>
 <% }); %>

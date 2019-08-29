@@ -4,7 +4,7 @@ var debatersCtrl = require('../controllers/debaters')
 router.get('/debaters/browse', debatersCtrl.index);
 router.get('/debaters/addDebate', isLoggedIn, debatersCtrl.addDebate);
 router.post('/debaters', debatersCtrl.create)
-router.delete('/debaters/browse/:id', debatersCtrl.delDebate)
+router.delete('/addDebate/:id', debatersCtrl.delDebate)
 
 
 
