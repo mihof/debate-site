@@ -29,8 +29,14 @@ function addDebate(req,res) {
 }
 
 function create(req, res) {
-  var newDebate = new Debaters(req.body)
-  newDebate.addDebate.push(req.body)
+  var newDebateObj = {
+    name: req.user.name,
+    email: req.user.email,
+    addDebate: [req.body],
+    comment: [],
+    googleId: req.user.googleId
+  }
+  var newDebate = new Debaters(newDebateObj)
   newDebate.save(function(err) {
     if (err) return res.redirect('/debaters/browse');
     res.redirect(`/debaters/browse`);
@@ -38,8 +44,8 @@ function create(req, res) {
 }
 
 function delDebate(req, res, next) {
-    Debaters.findOne({'addDebate._id': req.params.id}, function(err, debater) {
-    debater.addDebate.id(req.params.id).remove();
+    Debaters.findOne({'Debater._id': req.params.id}, function(err, debater) {
+    debater.id(req.params.id).remove();
     debater.save(function(err) {
       res.redirect('/debaters/browse');
     });
