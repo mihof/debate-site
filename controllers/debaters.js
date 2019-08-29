@@ -2,7 +2,6 @@ const Debaters = require ('../models/debater');
 
 module.exports = {
   index,
-  browse,
   addDebate,
   create,
   delDebate
@@ -19,13 +18,6 @@ function index(req, res, next) {
       name: req.query.name,
       sortKey
     });
-  });
-}
-
-function browse(req, res) {
-res.render('debaters/browse', {
-    user: req.user,
-    name: req.query.name,
   });
 }
 

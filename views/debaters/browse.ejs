@@ -2,9 +2,11 @@
 <h1>Debate Site</h1>
 <div class="card w-50">
     <div class="card-body">
-      <% debaters.addDebate.forEach(function(d) { %>
-      <h5 class="card-title"><% d.topic %></h5>
-      <p class="card-text"><% d.description %></p>
+      <% debaters.forEach(function(debater) { %>
+      <% debater.addDebate.forEach(function(d) { %>
+      <h5 class="card-title"><%= d.topic %></h5>
+      <p class="card-text"><%= d.description %></p>
+      <% }); %>
       <% }); %>
     </div>
   </div>

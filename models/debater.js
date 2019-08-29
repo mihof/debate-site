@@ -11,9 +11,6 @@ var commentSchema = new mongoose.Schema({
 
 var addDebateSchema = new mongoose.Schema({
   topic: String,
-  stances1: String,
-  stances2: String,
-  stances1: String,
   description: String,
 });
 
