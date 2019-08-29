@@ -4,7 +4,9 @@ module.exports = {
   index,
   addDebate,
   create,
-  delDebate
+  delDebate,
+  addComment,
+  createComment
 };
 
 function index(req, res, next) {
@@ -44,10 +46,23 @@ function create(req, res) {
 }
 
 function delDebate(req, res, next) {
-    Debaters.findOne({'Debater._id': req.params.id}, function(err, debater) {
-    debater.id(req.params.id).remove();
-    debater.save(function(err) {
-      res.redirect('/debaters/browse');
-    });
+  console.log('delete route');
+    Debaters.findByIdAndDelete(req.params.id, function(err, deletedDebater) {
+      res.redirect('/debaters/browse')
+  });
+}
+
+function addComment(req,res) {
+  res.render('debaters/addComment', {
+    user: req.user,
+    name: req.query.name,
+  });
+}
+
+function createComment(req, res) {
+  Debaters._id.comment.push(req.body);
+  Debaters._id.save(function(err) {
+    if (err) return res.redirect('/debaters/browse');
+    res.redirect(`/debaters/browse`);
   });
 }

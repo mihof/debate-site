@@ -3,8 +3,10 @@ var debatersCtrl = require('../controllers/debaters')
 
 router.get('/debaters/browse', debatersCtrl.index);
 router.get('/debaters/addDebate', isLoggedIn, debatersCtrl.addDebate);
-router.post('/debaters', debatersCtrl.create)
-router.delete('/debater/:id', isLoggedIn, debatersCtrl.delDebate)
+router.post('/debaters', debatersCtrl.create);
+router.delete('/debaters/:id', isLoggedIn, debatersCtrl.delDebate);
+router.get('/debaters/:id', isLoggedIn, debatersCtrl.addComment);
+router.put('/debaters/:id', debatersCtrl.createComment);
 
 
 

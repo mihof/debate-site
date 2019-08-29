@@ -9,12 +9,10 @@
         <p class="card-text"><%= d.description %></p>
       </div>
       <div>
-        
-
         <form>
           <div class="btn-group" role="group">
             <% if (user) { %>
-              <button type="button" class="btn btn-success">Add Comment</button>
+              <a href="/debaters/addComment" role="button" class="btn btn-success">Add Comment</a>
             <% } %>
             <button id="btnGroupDrop1" type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Comments
@@ -22,18 +20,17 @@
             <% debater.comment.forEach(function(d) { %>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="#">Dropdown link</a>
-                <a class="dropdown-item" href="#">Dropdown link</a>
               </div>
             <% }); %>
+          </form>
             <% if (user) { %>
               <% if (debater.name === user.name && debater.email === user.email) { %>
-                <form action="/debater?_method=DELETE" method="POST" class="secondary-content">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                <form action="/debaters/<%= debater._id %>?_method=DELETE" method="POST" class="secondary-content">
+                  <button type="submit" class="btn btn-outline-danger">Delete</button>
                 </form>
               <% } %>
             <% } %>
           </div>
-        </form>
       </div>
     </div>
   <% }); %>

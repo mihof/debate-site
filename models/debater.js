@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var commentSchema = new mongoose.Schema({
-  text: {
+  comment: {
   type: String,
-  min: 5,
+  min: 1,
   max:300
   }
 });
