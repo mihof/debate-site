@@ -29,8 +29,9 @@ function addDebate(req,res) {
 }
 
 function create(req, res) {
-  req.user.addDebate.push(req.body)
-  req.user.save(function(err) {
+  var newDebate = new Debaters(req.body)
+  newDebate.addDebate.push(req.body)
+  newDebate.save(function(err) {
     if (err) return res.redirect('/debaters/browse');
     res.redirect(`/debaters/browse`);
   });

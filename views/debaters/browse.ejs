@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 <h1>Debate Site</h1>
-<div class="card w-50">
+<% debaters.forEach(function(debater) { %>
+  <div class="card w-50">
     <div class="card-body">
-      <% debaters.forEach(function(debater) { %>
       <% debater.addDebate.forEach(function(d) { %>
       <h5 class="card-title"><%= d.topic %></h5>
       <p class="card-text"><%= d.description %></p>
       <% }); %>
-      <% }); %>
     </div>
   </div>
+<% }); %>
 <%- include('../partials/footer') %>
