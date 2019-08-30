@@ -6,6 +6,7 @@ Argue with strangers [here] (https://sei-mike-debates.herokuapp.com/debaters/bro
 
 Technologies Used:
  * Node.js
+ * Embedded JS
  * Mongodb Atlas
  * Mongoose
  * Express
