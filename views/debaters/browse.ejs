@@ -9,27 +9,33 @@
         <p class="card-text"><%= d.description %></p>
       </div>
       <div>
-        <form>
-          <div class="btn-group" role="group">
+        
+         
             <% if (user) { %>
-              <a href="/debaters/addComment" role="button" class="btn btn-success">Add Comment</a>
+              <form action="/debaters/<%= debater._id %>/comment" method="POST">
+                <div class="form-group">
+                  <label for="comment">Add Comment</label>
+                  <textarea name="comment" type="text" class="form-control" id="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success" value="Add Comment">Submit</button>
+              </form>
             <% } %>
+ 
+              <% if (user) { %>
+                <% if (debater.name === user.name && debater.email === user.email) { %>
+                  <form action="/debaters/<%= debater._id %>?_method=DELETE" method="POST" class="secondary-content">
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                  </form>
+                <% } %>
+              <% } %>
             <button id="btnGroupDrop1" type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Comments
             </button>
-            <% debater.comment.forEach(function(d) { %>
-              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#">Dropdown link</a>
-              </div>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"></div>
+            <% debater.comment.forEach(function(c) { %>
+                <a class="dropdown-item" href="#"><%= c.comment%></a>
             <% }); %>
-          </form>
-            <% if (user) { %>
-              <% if (debater.name === user.name && debater.email === user.email) { %>
-                <form action="/debaters/<%= debater._id %>?_method=DELETE" method="POST" class="secondary-content">
-                  <button type="submit" class="btn btn-outline-danger">Delete</button>
-                </form>
-              <% } %>
-            <% } %>
+          </div>
           </div>
       </div>
     </div>

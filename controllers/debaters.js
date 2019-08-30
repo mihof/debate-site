@@ -5,7 +5,6 @@ module.exports = {
   addDebate,
   create,
   delDebate,
-  addComment,
   createComment
 };
 
@@ -52,17 +51,11 @@ function delDebate(req, res, next) {
   });
 }
 
-function addComment(req,res) {
-  res.render('debaters/addComment', {
-    user: req.user,
-    name: req.query.name,
-  });
-}
-
 function createComment(req, res) {
-  Debaters._id.comment.push(req.body);
-  Debaters._id.save(function(err) {
-    if (err) return res.redirect('/debaters/browse');
-    res.redirect(`/debaters/browse`);
+  Debaters.findById(req.params.id, function(err, debater) {
+    debater.comment.push(req.body);
+    debater.save(function(err) {
+      res.redirect('/debaters/browse');
+    });
   });
 }
