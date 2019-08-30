@@ -16,3 +16,11 @@ Technologies Used:
  Next Steps:
   * Styling the main browser page
   * Add a delete and edit feature to the comments
+
+[Imgur](https://i.imgur.com/APQpUCk.png)
+[Imgur](https://i.imgur.com/r900eJN.png)
+[Imgur](https://i.imgur.com/OErzhFM.png)
+[Imgur](https://i.imgur.com/S5JPOGH.png)
+[Imgur](https://i.imgur.com/itI4xrn.png)
+[Imgur](https://i.imgur.com/TLHSnwH.png)
+[Imgur](https://i.imgur.com/Oh1RWC1.png)
